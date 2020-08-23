@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Card, 
   CardBody, 
@@ -22,24 +22,26 @@ const MealCard = (props) => {
   
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
+  
   return (
     <>
-      <Card style={{
+      <Card onClick={toggleModal} style={{
         'marginTop': '0.6rem',
         'marginBottom': '0.6rem',
         'boxShadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
       }}>
-        
-        <CardImg 
+        <div className="wrap">
+        <CardImg
         top width="100%" 
-        src={`https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn${props.img}`} alt="Card image cap" />
+        src={`https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn${props.img}`} alt="Card image" />
         <CardBody>
-          <CardTitle><strong>{props.name}</strong></CardTitle>
-          <CardText>
-            <small>{props.menu}</small>
+          <CardTitle className="text-center"><strong>{props.name}</strong></CardTitle>
+          <CardText className="text-center">
+            <small>{props.menu != 'null' ? props.menu : props.type}</small><br/>
+            <small style={{color:'#940f0f'}}>{(props.price != 'null')? `${props.price}￦` : ''}</small>
           </CardText>
         </CardBody>
-        <CardFooter className="wrap" style={{
+        {/* <CardFooter className="wrap" style={{
           'padding': '0 0 0 0'
         }}>
         
@@ -66,7 +68,8 @@ const MealCard = (props) => {
           }}
           size="lg" icon={faAngleRight} />
         </Button>
-        </CardFooter>
+        </CardFooter> */}
+        </div>
       </Card>
      
       <Modal size="lg" className="modalClass" isOpen={modal} toggle={toggleModal}>
@@ -75,9 +78,9 @@ const MealCard = (props) => {
         
         주소
         <hr className="my-2"/>
-        {props.address} 
-        <br/>
-        <Map
+        <div>{props.address} <a href={`https://map.kakao.com/link/to/${props.name},${props.latitude},${props.longitude}`} style={{textDecoration:'none'}}>길찾기</a></div> 
+     
+        <Map 
           latitude = {props.latitude}
           longitude = {props.longitude}
         />
@@ -90,11 +93,13 @@ const MealCard = (props) => {
           overflow:'hidden',
           wordWrap:'break-word'
         }}>
-        <small>
         썸네일 출처
         <hr className="my-2"/>
+        <a href={props.img_source} style={{textDecoration:'none'}}>
+        <small>
         {props.img_source}
         </small>
+        </a>
         </div>
         </ModalFooter>
       </Modal>

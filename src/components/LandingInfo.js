@@ -18,7 +18,7 @@ const LandingInfo = () => {
                 <Col className="text-right align-items-center">
                     <h3 style={{color:"#940f0f"}}><strong>MEALKHU</strong></h3>
                     <div className="pr-4 pt-1">
-                        <img src="flower.png" alt="logo" width="95" />
+                        <img src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/flower.png" alt="logo" width="95" />
                     </div>
                 </Col>
                 <Col className="text-left">

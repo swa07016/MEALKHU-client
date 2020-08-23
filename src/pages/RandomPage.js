@@ -6,7 +6,6 @@ import axios from 'axios';
 import Loading from '../components/Loading';
 import MealCard from '../components/MealCard';
 
-
 const styles = {
     offBtn : {
         backgroundColor:'#ffffff',
@@ -51,7 +50,7 @@ const RandomPage = (props) => {
    
     const fetchData = async () => {
         const result = await axios(
-          `http://www.mealkhu.tk/api/datas`
+          `https://khumeal.herokuapp.com/api/${campus}`
         );
         setDatas(result.data);
     };
@@ -156,7 +155,7 @@ const RandomPage = (props) => {
             
 
             <h4 className="mt-4 mb-3">랜덤 추천</h4>
-            <p className="text-muted">원하는 메뉴를 선택한 후 start버튼을 눌러보세요!</p>
+            <p className="text-muted">원하는 메뉴들을 선택한 후 start버튼을 눌러보세요!</p>
                 <div>
                     <Button
                     size="sm"
@@ -258,6 +257,7 @@ const RandomPage = (props) => {
                                 longitude = {data.longitude}
                                 type = {data.type}
                                 menu = {data.menu}
+                                price = {data.price}
                                 img = {data.img}
                                 img_source = {data.img_source}
                                 />
@@ -277,7 +277,10 @@ const RandomPage = (props) => {
 
             {datas ? <LandingMap
                 datas = {datas}
-            /> : 'loading...'}
+                lat={localStorage.campus === 'global' ? 37.2479109441 : 37.59226457}
+                lng={localStorage.campus === 'global' ? 127.0773045246 : 127.051544}
+                level={localStorage.campus === 'global' ? 3 : 2}
+            /> : <Loading value="Loading.."/>}
             
 
             </Container>

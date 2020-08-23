@@ -4,7 +4,7 @@ import { Spinner } from 'reactstrap';
 const Loading = (props) => {
     return (
         <span style={{
-            'display':'flex', 'width':'100%', "height":'85%', 'textAlign':'center', 'alignItems':'center'
+            'display':'flex', 'width':'100%', "height":'100%', 'textAlign':'center', 'alignItems':'center'
         }}>
             <span style={{
             'margin': '0 auto'

@@ -23,9 +23,29 @@ const styles = {
     }
 }
 
+const getMealCard = (data) => {
+    return (
+        <Col key={data.id}>
+            <MealCard
+                key = {data.id}
+                id = {data.id}
+                name = {data.name}
+                address = {data.address}
+                latitude = {data.latitude}
+                longitude = {data.longitude}
+                type = {data.type}
+                menu = {data.menu}
+                price = {data.price}
+                img = {data.img}
+                img_source = {data.img_source}
+            />
+        </Col>
+    );
+}
 
 
-const MenuPage = (props) => {
+
+const MenuPage = () => {
     let campus = localStorage.campus;
     const [datas, setDatas] = useState([]);
     const [filteredDatas, setFilteredDatas] = useState([]);
@@ -41,15 +61,31 @@ const MenuPage = (props) => {
     const [cafe, setCafe] = useState(false);
     const [etc, setEtc] = useState(false);
 
+
     const fetchData = async () => {
+        setFilteredDatas([]);
+        setDatas([]);
+        setIsLoading(false);
         const result = await axios(
-          `http://www.mealkhu.tk/api/datas`
+          `https://khumeal.herokuapp.com/api/${campus}`
         );
         setDatas(result.data);
         setIsLoading(true);
     };
 
+
     const changeData = async (navCampus) => {
+        setOffBtnStyle();
+        campus = await navCampus;
+        fetchData();
+    }
+
+    useEffect(() => {
+      fetchData();
+    }, []);
+    
+    const setOffBtnStyle = () => {
+        setAll(false);
         setKfood(false);
         setCfood(false);
         setJfood(false);
@@ -59,112 +95,81 @@ const MenuPage = (props) => {
         setFastfood(false);
         setCafe(false);
         setEtc(false);
-        campus = await navCampus;
-        fetchData();
     }
 
-    useEffect(() => {
-      fetchData();
-    }, []);
     
-
-    // filtereddatas 처리 + isloading변경
-    
-    const filterData = () => {
+    const btnHandler = (e, f) => {
+        setOffBtnStyle();
+        const TYPE = e.target.value.split(',');
+        f(true);
         let result = [];
-        const states = [Kfood, Cfood, Jfood, meat, snackfood, pub, fastfood, cafe, etc];
-        const types = [['한식'], ['중식'], ['일식'], ['고기'], ['분식'], ['호프', '술집'], ['패스트푸드'], ['카페', '디저트'], ['기타']];
-        for(let i = 0; i < states.length; i++) {
-            if(states[i] === true) {
-                const temp = types[i];
-                for(let j = 0; j < datas.length; j++) {
-                    for(let k = 0; k < temp.length; k++) {
-                        if(datas[j].type === temp[k]) {
-                            result.push(datas[j]);
-                        }
-                    }
+        if(TYPE[0] === '전체') {
+            for(let i=0; i<datas.length; i++) result.push(getMealCard(datas[i]));
+            setFilteredDatas(result);
+            
+        } else {
+            for(let i=0; i<datas.length; i++) {
+                const data = datas[i];
+                for(let j=0; j<TYPE.length; j++) {
+                    if(data.type === TYPE[j]) {result.push(getMealCard(data));
+                    break;
+                }
                 }
             }
+            setFilteredDatas(result);
         }
-        setFilteredDatas(result);
     }
-
-    useEffect( () => {
-        setIsLoading(false);
-        filterData();
-        setIsLoading(true);
-    }, [Kfood, Cfood, Jfood, meat, snackfood, pub, fastfood, cafe, etc]);
-
-    useEffect(() => {
-        if(all === true) {
-            setKfood(true);
-            setCfood(true);
-            setJfood(true);
-            setMeat(true);
-            setSnackfood(true);
-            setPub(true);
-            setFastfood(true);
-            setCafe(true);
-            setEtc(true);
-        }
-        else {
-            setKfood(false);
-            setCfood(false);
-            setJfood(false);
-            setMeat(false);
-            setSnackfood(false);
-            setPub(false);
-            setFastfood(false);
-            setCafe(false);
-            setEtc(false);
-        }
-    }, [all]);
 
     return (
         <>
             <NavBar 
                 campusHandler={changeData}
             />
-            <Container style={{
+
+            { isLoading ? <><Container style={{
                 paddingTop : '1.5rem'
             }}> 
-
                 <h4 className="mt-4 mb-3">메뉴별 필터링</h4>
-                <p className="text-muted">원하는 메뉴들을 선택하세요!</p>
+                <p className="text-muted">원하는 메뉴를 선택하세요!</p>
                 <div>
                     <Button
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
-                    style={all ? styles.onBtn:styles.offBtn} 
-                    onClick={() => setAll(!all)}
+                    style={all ? styles.onBtn:styles.offBtn}
+                    onClick={(e) => btnHandler(e, setAll)}
+                    value="전체"
                     >전체</Button>
 
                     <Button
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={Kfood ? styles.onBtn:styles.offBtn} 
-                    onClick={() => setKfood(!Kfood)}
+                    onClick={(e) => btnHandler(e, setKfood)}
+                    value="한식"
                     >한식</Button>
 
                     <Button
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={Cfood ? styles.onBtn:styles.offBtn} 
-                    onClick={() => setCfood(!Cfood)}
+                    onClick={(e) => btnHandler(e, setCfood)}
+                    value="중식"
                     >중식</Button>
                     
                     <Button
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={Jfood ? styles.onBtn:styles.offBtn} 
-                    onClick={() => setJfood(!Jfood)}
+                    onClick={(e) => btnHandler(e, setJfood)}
+                    value="일식"
                     >일식</Button>
                
                     <Button
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={meat ? styles.onBtn:styles.offBtn} 
-                    onClick={() => setMeat(!meat)}
+                    onClick={(e) => btnHandler(e, setMeat)}
+                    value="고기"
                     >고기</Button>
 
 
@@ -172,67 +177,48 @@ const MenuPage = (props) => {
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={snackfood ? styles.onBtn:styles.offBtn} 
-                    onClick={() => setSnackfood(!snackfood)}
+                    onClick={(e) => btnHandler(e, setSnackfood)}
+                    value="분식"
                     >분식</Button>
 
                     <Button
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={pub ? styles.onBtn:styles.offBtn} 
-                    onClick={() => setPub(!pub)}
+                    onClick={(e) => btnHandler(e, setPub)}
+                    value="호프,술집"
                     >호프/술집</Button>
 
                     <Button
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={fastfood ? styles.onBtn:styles.offBtn} 
-                    onClick={() => setFastfood(!fastfood)}
+                    onClick={(e) => btnHandler(e, setFastfood)}
+                    value="패스트푸드"
                     >패스트푸드</Button>
 
                     <Button
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={cafe ? styles.onBtn:styles.offBtn} 
-                    onClick={() => setCafe(!cafe)}
+                    onClick={(e) => btnHandler(e, setCafe)}
+                    value="카페,디저트"
                     >카페/디저트</Button>
 
                     <Button
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={etc ? styles.onBtn:styles.offBtn} 
-                    onClick={() => setEtc(!etc)}
+                    onClick={(e) => btnHandler(e, setEtc)}
+                    value="기타"
                     >기타</Button>
                     
                 </div>
                 <hr/>
             </Container>
-
-            
-            
-                {isLoading ? 
-                (<Container >
-                    <Row xs="2" sm="2" md="4">
-                        {filteredDatas.map((data) => 
-                        <Col key={data.id}>
-                        <MealCard
-                            key = {data.id}
-                            id = {data.id}
-                            name = {data.name}
-                            address = {data.address}
-                            latitude = {data.latitude}
-                            longitude = {data.longitude}
-                            type = {data.type}
-                            menu = {data.menu}
-                            img = {data.img}
-                            img_source = {data.img_source}
-                        />
-                        </Col>
-                        ) 
-                        }
-                        </Row>
-                </Container>)
-                : <Loading value="Loading.."/>
-                }
+            <Container>
+                <Row xs="2" sm="2" md="4">{filteredDatas}</Row>
+            </Container></> : <Loading value="Loading.."/>}
         </>
     );
 }

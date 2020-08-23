@@ -1,7 +1,7 @@
-button {
-    opacity: 1.0;
-  }
+.wrap {
+  opacity: 1 !important;
+}
   
-  button:hover {
-    opacity: 0.2;
-  }
+.wrap:hover {
+  opacity: 0.2 !important;
+}

@@ -47,7 +47,7 @@ const NavBar = (props) => {
       }} light expand="md" fixed="top">
       <Container className="themed-container">
         <span>
-            <a href='/'><img src="logo.png" alt="logo" width="65" /></a>
+            <a href='/'><img src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/logo.png" alt="logo" width="65" /></a>
         </span>
         <NavbarBrand href="/" style={{'marginLeft':'1.5rem', 'color':'#940f0f'}}><strong>MEALKHU</strong></NavbarBrand>
         <NavbarToggler onClick={toggle} />

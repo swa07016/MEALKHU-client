@@ -24,17 +24,17 @@ const LandingMap = (props) => {
       kakao.maps.load(() => {
         let container = document.getElementById("map");
         let options = {
-          center: new kakao.maps.LatLng(37.2479109441, 127.0773045246),
-          level: 3,
+          center: new kakao.maps.LatLng(props.lat, props.lng),
+          level: props.level,
         };
         let map = new window.kakao.maps.Map(container, options);
         let positions = [];
         // 마커 이미지를 생성합니다
         // 마커 이미지의 이미지 크기 입니다
         let imageSize = new kakao.maps.Size(40, 40);
-        let imageSrc_cafe = "cafe_icon.png";
-        let imageSrc_meal = "meal_icon.png";
-        let imageSrc_pub = "pub_icon.png";
+        let imageSrc_cafe = "https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/cafe_icon.png";
+        let imageSrc_meal = "https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/meal_icon.png";
+        let imageSrc_pub = "https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/pub_icon.png";
 
         const CreateMarkerImage = (type) => {
           if (type === "술집" || type === "호프")
@@ -169,7 +169,7 @@ const LandingMap = (props) => {
         id="map"
         style={{
           width: "100%",
-          height: "27rem",
+          height: "30rem",
         }}
       ></div>
       <p className="mt-2">※같은 건물에 위치한 식당의 경우, 좌표가 겹쳐서 보이지 않는 경우가 있습니다. 식당들의 자세한 정보는 메뉴별 탭에서 확인해주세요.</p>
