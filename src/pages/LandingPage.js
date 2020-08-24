@@ -4,7 +4,7 @@ import LandingInfo from '../components/LandingInfo';
 import { Container, Row, Col } from 'reactstrap';
 
 
-const LandingPage = (props) => {
+const LandingPage = () => {
     
     return (
         <>

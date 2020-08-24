@@ -31,7 +31,7 @@ const styles = {
 
 
 
-const RandomPage = (props) => {
+const RandomPage = () => {
     let campus = localStorage.campus;
     const [datas, setDatas] = useState([]);
     const [filteredDatas, setFilteredDatas] = useState([]);
@@ -141,7 +141,7 @@ const RandomPage = (props) => {
     const getRandomInt = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+        return Math.floor(Math.random() * (max - min)) + min; 
       }
 
     return (
@@ -152,8 +152,6 @@ const RandomPage = (props) => {
             <Container style={{
                 paddingTop : '1.5rem'
             }}>
-            
-
             <h4 className="mt-4 mb-3">랜덤 추천</h4>
             <p className="text-muted">원하는 메뉴들을 선택한 후 start버튼을 눌러보세요!</p>
                 <div>
@@ -234,11 +232,8 @@ const RandomPage = (props) => {
                     style={styles.start} 
                     onClick={randomHandler}
                     >start!</Button>
-
                 </div>
                 <hr/>
-
-
                 {isRandom === 0 ? ('') : ( (isRandom === 1) ? <span style={{'padding':'1.5rem'}}><Loading value="추첨중.."/></span> :(
                             <Container>
                             <Row xs='1' sm="1" md="3" lg="3">
@@ -271,23 +266,13 @@ const RandomPage = (props) => {
                         </Container>
                         ) 
                 )}
-
-
-
-
             {datas ? <LandingMap
                 datas = {datas}
                 lat={localStorage.campus === 'global' ? 37.2479109441 : 37.59226457}
                 lng={localStorage.campus === 'global' ? 127.0773045246 : 127.051544}
                 level={localStorage.campus === 'global' ? 3 : 2}
             /> : <Loading value="Loading.."/>}
-            
-
-            </Container>
-                
-                    
-                
-                
+            </Container>     
         </>
     );
 }

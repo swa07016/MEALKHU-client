@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Card, 
   CardBody, 
   CardTitle, 
   CardText, 
   CardImg, 
-  CardFooter, 
-  Button, 
   Modal, 
   ModalHeader, 
   ModalBody, 
@@ -14,8 +12,6 @@ import {
 from 'reactstrap';
 import Map from './Map';
 import './MealCard.css';
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 
 const MealCard = (props) => {
@@ -33,7 +29,7 @@ const MealCard = (props) => {
         <div className="wrap">
         <CardImg
         top width="100%" 
-        src={`https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn${props.img}`} alt="Card image" />
+        src={`https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn${props.img}?${Date.now()}`} alt="Card image" />
         <CardBody>
           <CardTitle className="text-center"><strong>{props.name}</strong></CardTitle>
           <CardText className="text-center">
@@ -41,34 +37,7 @@ const MealCard = (props) => {
             <small style={{color:'#940f0f'}}>{(props.price != 'null')? `${props.price}￦` : ''}</small>
           </CardText>
         </CardBody>
-        {/* <CardFooter className="wrap" style={{
-          'padding': '0 0 0 0'
-        }}>
-        
-        <Button 
-        onClick={toggleModal}
-        className="button"  
-        style={{
-          'width':'100%',
-          'borderRadius':'0 0 0 0',
-          'backgroundColor': '#F6F6F6',
-          'border': '0px',
-          'color':'black'
-        }}>
-        <span style={{
-          'float':'left',
-          'fontSize': '14px'
-        }}>
-        view more
-        </span>
-          <FontAwesomeIcon style={{
-            'color': 'black',
-            'float': 'right',
-            'paddingTop':'0.1rem'
-          }}
-          size="lg" icon={faAngleRight} />
-        </Button>
-        </CardFooter> */}
+      
         </div>
       </Card>
      
