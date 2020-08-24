@@ -4,6 +4,7 @@ import MenuPage from './pages/MenuPage';
 import NotFound from './pages/NotFound';
 import PricePage from './pages/PricePage';
 import RandomPage from './pages/RandomPage';
+import AboutPage from './pages/AboutPage';
 
 import {
   BrowserRouter as Router,
@@ -19,6 +20,7 @@ function App() {
       <>
         <Switch>
           <Route exact path="/" component={LandingPage}/>
+          <Route exact path="/about" component={AboutPage}/>
           <Route exact path="/menu" component={MenuPage}/>
           <Route exact path="/price" component={PricePage}/>
           <Route exact path="/random" component={RandomPage}/>

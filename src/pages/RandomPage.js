@@ -40,6 +40,7 @@ const RandomPage = () => {
     const [Kfood, setKfood] = useState(false);
     const [Cfood, setCfood] = useState(false);
     const [Jfood, setJfood] = useState(false);
+    const [Wfood, setWfood] = useState(false);
     const [meat, setMeat] = useState(false);
     const [snackfood, setSnackfood] = useState(false);
     const [pub, setPub] = useState(false);
@@ -59,6 +60,7 @@ const RandomPage = () => {
         setKfood(false);
         setCfood(false);
         setJfood(false);
+        setWfood(false);
         setMeat(false);
         setSnackfood(false);
         setPub(false);
@@ -75,8 +77,8 @@ const RandomPage = () => {
 
     useEffect(() => {
         let result = [];
-        const states = [Kfood, Cfood, Jfood, meat, snackfood, pub, fastfood, cafe, etc];
-        const types = [['한식'], ['중식'], ['일식'], ['고기'], ['분식'], ['호프', '술집'], ['패스트푸드'], ['카페', '디저트'], ['기타']];
+        const states = [Kfood, Cfood, Wfood, Jfood, meat, snackfood, pub, fastfood, cafe, etc];
+        const types = [['한식'], ['중식'], ['양식'], ['일식'], ['고기'], ['분식'], ['호프', '술집'], ['패스트푸드'], ['카페', '디저트'], ['기타']];
         for(let i = 0; i < states.length; i++) {
             if(states[i] === true) {
                 const temp = types[i];
@@ -90,7 +92,7 @@ const RandomPage = () => {
             }
         }
         setFilteredDatas(result);
-    }, [Kfood, Cfood, Jfood, meat, snackfood, pub, fastfood, cafe, etc]);
+    }, [Kfood, Cfood, Jfood, Wfood, meat, snackfood, pub, fastfood, cafe, etc]);
 
     useEffect(() => {
         if(all === true) {
@@ -98,6 +100,7 @@ const RandomPage = () => {
             setCfood(true);
             setJfood(true);
             setMeat(true);
+            setWfood(true);
             setSnackfood(true);
             setPub(true);
             setFastfood(true);
@@ -108,6 +111,7 @@ const RandomPage = () => {
             setKfood(false);
             setCfood(false);
             setJfood(false);
+            setWfood(false);
             setMeat(false);
             setSnackfood(false);
             setPub(false);
@@ -175,6 +179,14 @@ const RandomPage = () => {
                     style={Cfood ? styles.onBtn:styles.offBtn} 
                     onClick={() => setCfood(!Cfood)}
                     >중식</Button>
+
+                    <Button
+                    size="sm"
+                    className="rounded-pill mx-2 my-1 remove-hover"
+                    style={Wfood ? styles.onBtn:styles.offBtn} 
+                    onClick={() => setWfood(!Wfood)}
+                    value="양식"
+                    >양식</Button>
                     
                     <Button
                     size="sm"

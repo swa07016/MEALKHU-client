@@ -52,6 +52,9 @@ const NavBar = (props) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
+                <NavLink href="/about" style={{'color':'#940f0f'}}><strong>소개</strong></NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink href="/menu" style={{'color':'#940f0f'}}><strong>메뉴별</strong></NavLink>
               </NavItem>
               <NavItem>

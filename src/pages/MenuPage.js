@@ -54,6 +54,7 @@ const MenuPage = () => {
     const [Kfood, setKfood] = useState(false);
     const [Cfood, setCfood] = useState(false);
     const [Jfood, setJfood] = useState(false);
+    const [Wfood, setWfood] = useState(false);
     const [meat, setMeat] = useState(false);
     const [snackfood, setSnackfood] = useState(false);
     const [pub, setPub] = useState(false);
@@ -89,6 +90,7 @@ const MenuPage = () => {
         setKfood(false);
         setCfood(false);
         setJfood(false);
+        setWfood(false);
         setMeat(false);
         setSnackfood(false);
         setPub(false);
@@ -156,6 +158,14 @@ const MenuPage = () => {
                     value="중식"
                     >중식</Button>
                     
+                    <Button
+                    size="sm"
+                    className="rounded-pill mx-2 my-1 remove-hover"
+                    style={Wfood ? styles.onBtn:styles.offBtn} 
+                    onClick={(e) => btnHandler(e, setWfood)}
+                    value="양식"
+                    >양식</Button>
+
                     <Button
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
