@@ -64,9 +64,19 @@ const PricePage = () => {
         for(let i=0; i<datas.length; i++) {
             const data = datas[i];
             if(data.price === 'null') continue;
-            if(PRICE[0] <= Number(data.price) && Number(data.price) <=PRICE[1]) result.push(getMealCard(data));
+            if(PRICE[0] <= Number(data.price) && Number(data.price) <=PRICE[1]) result.push(data);
             
         }
+        for(let i=0; i<result.length-1; i++) {   
+            for(let j=i+1; j<result.length; j++) {
+                if(Number(result[j].price) < Number(result[i].price)) {
+                    let tmp = result[j];
+                    result[j] = result[i];
+                    result[i] = tmp;
+                }
+            }
+        }
+        for(let i=0; i<result.length; i++) result[i] = getMealCard(result[i])
         setFilteredDatas(result);
     }
 
