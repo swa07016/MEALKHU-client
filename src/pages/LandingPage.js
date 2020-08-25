@@ -8,7 +8,9 @@ const LandingPage = () => {
     
     return (
         <>
-            <NavBar/>
+           <NavBar 
+                campusHandler={()=>{}}
+            />
             <LandingInfo/>
             <Container className="mb-4">
                 <h3>Our Services</h3>

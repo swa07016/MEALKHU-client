@@ -157,7 +157,7 @@ const RandomPage = () => {
                 paddingTop : '1.5rem'
             }}>
             <h4 className="mt-4 mb-3">랜덤 추천</h4>
-            <p className="text-muted">원하는 메뉴들을 선택한 후 start버튼을 눌러보세요!</p>
+            <p className="text-muted">원하는 메뉴들을 선택한 후 start버튼을 눌러보세요! (여러 개 선택가능)</p>
                 <div>
                     <Button
                     size="sm"

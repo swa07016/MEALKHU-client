@@ -8,7 +8,7 @@ import {
 const LandingInfo = () => {
     return (
         <Jumbotron style={{
-            backgroundImage: 'url(https://cdn.pixabay.com/photo/2017/03/23/19/57/asparagus-2169305_1280.jpg)',
+            backgroundImage: 'url(https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_1280.jpg)',
             backgroundSize: 'cover'
         }}>
             <div className="text-center text-white align-items-center">
