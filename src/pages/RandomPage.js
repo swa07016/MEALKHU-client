@@ -48,12 +48,16 @@ const RandomPage = () => {
     const [cafe, setCafe] = useState(false);
     const [etc, setEtc] = useState(false);
     const [isRandom, setIsRandom] = useState(0);
-   
+    const [isLoading, setIsLoading] = useState(false);
+
+
     const fetchData = async () => {
+        setIsLoading(false);
         const result = await axios(
           `https://khumeal.herokuapp.com/api/${campus}`
         );
         setDatas(result.data);
+        setIsLoading(true);
     };
 
     const changeData = async (navCampus) => {
@@ -153,7 +157,8 @@ const RandomPage = () => {
             <NavBar
                 campusHandler={changeData}
             />
-            <Container style={{
+            {isLoading ? 
+            (<Container style={{
                 paddingTop : '1.5rem'
             }}>
             <h4 className="mt-4 mb-3">랜덤 추천</h4>
@@ -278,13 +283,13 @@ const RandomPage = () => {
                         </Container>
                         ) 
                 )}
-            {datas ? <LandingMap
+            <LandingMap
                 datas = {datas}
                 lat={localStorage.campus === 'global' ? 37.2479109441 : 37.59226457}
                 lng={localStorage.campus === 'global' ? 127.0773045246 : 127.051544}
                 level={localStorage.campus === 'global' ? 3 : 2}
-            /> : <Loading value="Loading.."/>}
-            </Container>     
+            />
+            </Container>) : <Loading value="Loading.."/>}
         </>
     );
 }
