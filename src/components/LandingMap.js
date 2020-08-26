@@ -63,7 +63,7 @@ const LandingMap = (props) => {
           marker.setMap(map);
           const name = positions[i].title
           // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-          let iwContent = `<div style="padding:5px;">${name}</div>`, // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+          let iwContent = `<div style="padding:7px; font-size:14px">${name}</div>`, // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
               iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
           // 인포윈도우를 생성합니다
