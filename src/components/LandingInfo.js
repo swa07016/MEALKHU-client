@@ -9,7 +9,7 @@ const LandingInfo = () => {
     return (
         
         <Jumbotron style={{
-            backgroundImage: 'url(https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_1280.jpg)',
+            backgroundImage: 'url(https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/Landing.jpg)',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             padding:'0'
