@@ -1,19 +1,61 @@
 /*global kakao*/
 import React, { useEffect, useState } from "react";
-import { Input, } from "reactstrap";
-import { Label, Row, Col, FormGroup } from "reactstrap";
+import { Row, Col, Button, ButtonGroup } from "reactstrap";
+
+const styles = {
+  mealoffBtn : {
+      backgroundColor:'#ffffff',
+      color:'#000',
+      borderColor:'#000',
+      outline: 'none',
+      boxShadow: 'none',
+      borderRadius: '14px 0 0 14px'
+  },
+  mealonBtn : {
+      backgroundColor:'#fff',
+      color:'#940f0f',
+      borderColor:'#940f0f',
+      outline: 'none',
+      boxShadow: 'none',
+      borderRadius: '14px 0 0 14px'
+  },
+  cafeoffBtn : {
+    backgroundColor:'#ffffff',
+    color:'#000',
+    borderColor:'#000',
+    outline: 'none',
+    boxShadow: 'none'
+},
+cafeonBtn : {
+    backgroundColor:'#fff',
+    color:'#940f0f',
+    borderColor:'#940f0f',
+    outline: 'none',
+    boxShadow: 'none'
+},
+puboffBtn : {
+  backgroundColor:'#ffffff',
+  color:'#000',
+  borderColor:'#000',
+  outline: 'none',
+  boxShadow: 'none',
+  borderRadius: '0 14px 14px 0'
+},
+pubonBtn : {
+  backgroundColor:'#fff',
+  color:'#940f0f',
+  borderColor:'#940f0f',
+  outline: 'none',
+  boxShadow: 'none',
+  borderRadius: '0 14px 14px 0'
+}
+}
 
 const LandingMap = (props) => {
 
-  
   const [FDatas, setFDatas] = useState([]);
   const [selectedOption, setselectedOption] = useState('');
   
-  window.onload = function() { 
-    let init = document.getElementById('init');
-    init.click();
-   }
-
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
@@ -119,52 +161,21 @@ const LandingMap = (props) => {
   return (
     <>
       <hr className="my-2" />
-      <Row>
+      <Row xs="2" sm="2" md="2" lg="2"  className="mb-1">
       <Col>
-        <span className="font-weight-bold">MEALKHU MAP</span>
+        <h4>밀쿠맵</h4>
       </Col>
       <Col>
-      <Row>
-      <Col>
-        <FormGroup >
-          <Label className="float-right" >
-            <Input 
-            id="init"
-            checked={selectedOption === 'mealRadio'}
-            value="mealRadio"
-            onChange={handleOptionChange}
-             type="radio" name="radio1" />식사
-          </Label>
-        </FormGroup>
-      </Col>
-      <Col>
-        <FormGroup >
-          <Label className="float-right">
-            <Input 
-            value="cafeRadio"
-            checked={selectedOption === 'cafeRadio'}
-            onChange={handleOptionChange}
-            type="radio" name="radio1" />카페
-          </Label>
-        </FormGroup>
-      </Col>
-      <Col>  
-        <FormGroup >
-          <Label  className="float-right">
-            <Input 
-            value = "pubRadio"
-            checked={selectedOption === 'pubRadio'}
-            onChange={handleOptionChange}
-            type="radio" name="radio1" />술집
-          </Label>
-        </FormGroup>
-        </Col>
-        </Row>
+        <ButtonGroup className="float-right" style={{
+          borderRadius:'16px'
+        }} size="sm">
+          <Button onClick={handleOptionChange} style={selectedOption === 'mealRadio' ? styles.mealonBtn : styles.mealoffBtn} value="mealRadio">식사</Button>
+          <Button onClick={handleOptionChange} style={selectedOption === 'cafeRadio' ? styles.cafeonBtn : styles.cafeoffBtn} value="cafeRadio">카페</Button>
+          <Button onClick={handleOptionChange} style={selectedOption === 'pubRadio' ? styles.pubonBtn : styles.puboffBtn} value="pubRadio">술집</Button>
+          {/* 술집/호프, 술집? */}
+        </ButtonGroup>
       </Col>
       </Row>
-      
-      
-    
       <div
         id="map"
         style={{
@@ -174,8 +185,6 @@ const LandingMap = (props) => {
       ></div>
       <p className="mt-2">※같은 건물에 위치한 식당의 경우, 좌표가 겹쳐서 보이지 않는 경우가 있습니다. 식당들의 자세한 정보는 메뉴별 탭에서 확인해주세요.</p>
       </>
-      
-    
   );
 };
 

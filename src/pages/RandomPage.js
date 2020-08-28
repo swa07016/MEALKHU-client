@@ -50,11 +50,11 @@ const RandomPage = () => {
     const [isRandom, setIsRandom] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
-
+    
     const fetchData = async () => {
         setIsLoading(false);
         const result = await axios(
-          `https://khumeal.herokuapp.com/api/${campus}`
+        `https://khumeal.herokuapp.com/api/${campus}`
         );
         setDatas(result.data);
         setIsLoading(true);
