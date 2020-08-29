@@ -22,7 +22,7 @@ const AboutPage = () => {
                             backgroundColor:'black',
                             width:'50px'
                         }}/>
-                        <p className="lead">밀쿠는 경희대생의 식사고민을 덜어주기 위해 개발된 웹서비스입니다.<br/>경희대 주변의 식당, 술집, 카페를 카테고리, 가격별로 정리했습니다.</p>
+                        <p className="lead">밀쿠는 경희대생의 식사고민을 덜어주기 위해 개발된 웹서비스입니다.<br/><div className="mb-1"/>경희대 주변의 식당, 술집, 카페를 카테고리, 가격별로 정리했습니다.</p>
                     </div>
                 </Row>
                 <hr className="mt-4"/>
