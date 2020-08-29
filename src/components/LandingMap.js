@@ -150,7 +150,7 @@ const LandingMap = (props) => {
       }
     }
     setFDatas(result);
-  }, [selectedOption, props]);
+  }, [selectedOption]);
  
 
 
