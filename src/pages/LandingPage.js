@@ -21,7 +21,7 @@ const LandingPage = () => {
                             'margin': '1rem'
                             }}>
                             
-                            <img src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/menu_icon.png)" alt="menu-icon" width="50" />
+                            <img src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/menu_icon.png" alt="menu-icon" width="50" />
                             <h4 className="my-3">메뉴별</h4>
                             <p className="text-muted">메뉴별 필터링 기능을 사용해서<br/>원하는 메뉴로 음식점들을 찾아보세요!</p>
                             <a href="/menu" style={{textDecoration:'none'}}>바로가기</a>
@@ -32,7 +32,7 @@ const LandingPage = () => {
                             'margin': '1rem'
                             }}>
                             
-                            <img src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/price_icon.png" alt="menu-icon" width="50" />
+                            <img src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/price_icon.png" alt="price-icon" width="50" />
                             <h4 className="my-3">가격별</h4>
                             <p className="text-muted">가격별 필터링 기능을 사용해서<br/>원하는 가격으로 음식점들을 찾아보세요!</p>
                             <a href="/price" style={{textDecoration:'none'}}>바로가기</a>
@@ -43,7 +43,7 @@ const LandingPage = () => {
                             'margin': '1rem'
                             }}>
                         
-                            <img src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/map_icon.png" alt="menu-icon" width="50" />
+                            <img src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/map_icon.png" alt="map-icon" width="50" />
                             <h4 className="my-3">랜덤 / 밀쿠맵</h4>
                             <p className="text-muted">랜덤 추천 기능, 음식점 지도를<br/>볼 수 있는 밀쿠맵을 사용해보세요!</p>
                             <a href="/random" style={{textDecoration:'none'}}>바로가기</a>
