@@ -29,7 +29,7 @@ const AboutPage = () => {
                 <Row className="align-items-center" xs="1" sm="1" md="2" lg="2">
                     <Col className="order-lg-2 px-5">
                         <div className="px-4 py-5">
-                        <img className="img-fluid rounded-circle shadow-lg" src="https://cdn.pixabay.com/photo/2017/02/18/21/28/breakfast-2078286_960_720.png"/>
+                        <img className="img-fluid rounded-circle shadow-lg" src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/menu_img.png"/>
                         </div>
                     </Col>
                     <Col className="order-lg-1 px-5">
@@ -42,7 +42,7 @@ const AboutPage = () => {
                 <Row className="align-items-center" xs="1" sm="1" md="2" lg="2">
                     <Col className="order-lg-1 px-5">
                         <div className="px-4 py-5">
-                        <img className="img-fluid rounded-circle shadow-lg" src="https://cdn.pixabay.com/photo/2016/10/08/18/35/shopping-1724299_960_720.png"/>
+                        <img className="img-fluid rounded-circle shadow-lg" src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/price_img.png"/>
                         </div>
                     </Col>
                     <Col className="order-lg-2 px-5">
@@ -56,7 +56,7 @@ const AboutPage = () => {
                 <Row className="align-items-center" xs="1" sm="1" md="2" lg="2">
                     <Col className="order-lg-2 px-5">
                         <div className="px-4 py-5">
-                        <img className="img-fluid rounded-circle shadow-lg" src="https://cdn.pixabay.com/photo/2017/09/28/23/16/randomized-trial-2797448_960_720.png"/>
+                        <img className="img-fluid rounded-circle shadow-lg" src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/random_img.png"/>
                         </div>
                     </Col>
                     <Col className="order-lg-1 px-5">
