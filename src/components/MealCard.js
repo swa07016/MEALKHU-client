@@ -29,7 +29,7 @@ const MealCard = (props) => {
           <img style={{
             width:'100%',
             paddingTop:'100%',
-            backgroundImage: `url(https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn@master${props.img}?v=${Date.now()})`,
+            backgroundImage: `url(https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn@latest${props.img}?v=${Date.now()})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition:'center'
