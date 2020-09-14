@@ -85,7 +85,7 @@ const PricePage = () => {
         setDatas([]);
         setIsLoading(false);
         const result = await axios(
-          `https://khumeal.herokuapp.com/api/${campus}`
+            `https://khumeal.herokuapp.com/api/${campus}`
         );
         setDatas(result.data);
         setIsLoading(true);
@@ -106,8 +106,18 @@ const PricePage = () => {
         setoption6(false);
     }
 
+    const initClick = () => {
+        const initP = document.getElementById('init_p');
+        initP.click();
+    }
+
+    const initSettings = async () => {
+        await fetchData();
+        initClick();
+    }
+
     useEffect(() => {
-      fetchData();
+        initSettings();
     }, []);
 
     return (
@@ -122,6 +132,7 @@ const PricePage = () => {
                 <p className="text-muted">원하는 가격을 선택하세요!</p>
                 <div>
                     <Button
+                    id="init_p"
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={option1 ? styles.onBtn:styles.offBtn}

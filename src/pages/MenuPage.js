@@ -46,6 +46,7 @@ const getMealCard = (data) => {
 
 
 const MenuPage = () => {
+
     let campus = localStorage.campus;
     const [datas, setDatas] = useState([]);
     const [filteredDatas, setFilteredDatas] = useState([]);
@@ -74,6 +75,10 @@ const MenuPage = () => {
         setIsLoading(true);
     };
 
+    const initClickAll = () => {
+        const allBtn = document.getElementById('init_all');
+        allBtn.click();
+    }
 
     const changeData = async (navCampus) => {
         setOffBtnStyle();
@@ -81,8 +86,13 @@ const MenuPage = () => {
         fetchData();
     }
 
+    const initSettings = async () => {
+        await fetchData();
+        initClickAll();
+    }
+
     useEffect(() => {
-      fetchData();
+        initSettings();
     }, []);
     
     const setOffBtnStyle = () => {
@@ -135,6 +145,7 @@ const MenuPage = () => {
                 <p className="text-muted">원하는 메뉴를 선택하세요!</p>
                 <div>
                     <Button
+                    id="init_all"
                     size="sm"
                     className="rounded-pill mx-2 my-1 remove-hover"
                     style={all ? styles.onBtn:styles.offBtn}
