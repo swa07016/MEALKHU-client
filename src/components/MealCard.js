@@ -7,7 +7,9 @@ import {
   Modal, 
   ModalHeader, 
   ModalBody, 
-  ModalFooter } 
+  ModalFooter,
+  Button
+} 
 from 'reactstrap';
 import Map from './Map';
 import './MealCard.css';
@@ -49,21 +51,44 @@ const MealCard = (props) => {
         <ModalHeader toggle={toggleModal}>{props.name}</ModalHeader>
         <ModalBody>
         주소
-        <hr className="my-2"/>
-        <div>{props.address} <a href={`https://map.kakao.com/link/to/${props.name},${props.latitude},${props.longitude}`} style={{textDecoration:'none'}}>길찾기</a></div> 
-     
+        <a href={props.place_url !== 'null' ? props.place_url : null} style={{
+          textDecoration:'none',
+          }}>
+          <Button onClick={props.place_url === 'null' ? () => {alert('이 식당은 준비중입니다.')} : null} size="sm" className="float-right"
+          style={{
+            backgroundColor:'#ffc107',
+            border:'#ffc107',
+            outline: 'none',
+            boxShadow: 'none'
+          }}>더보기</Button>
+        </a>
+
+        <a href={`https://map.kakao.com/link/to/${props.name},${props.latitude},${props.longitude}`} style={{
+          textDecoration:'none',
+          color:'#fff'
+          }}>
+          <Button size="sm" className="float-right"
+          style={{
+            backgroundColor:'#940f0f',
+            border:'#940f0f',
+            outline: 'none',
+            boxShadow: 'none'
+          }}>길찾기</Button>
+        </a>
+        
+        <hr/>
+        {props.address}
         <Map 
           latitude = {props.latitude}
           longitude = {props.longitude}
         />
-        
 
         </ModalBody>
         <ModalFooter>
         <div style={{
           width:'100%',
           overflow:'hidden',
-          wordWrap:'break-word'
+          wordWrap:'break-word',
         }}>
         썸네일 출처
         <hr className="my-2"/>

@@ -38,6 +38,7 @@ const getMealCard = (data) => {
                 price = {data.price}
                 img = {data.img}
                 img_source = {data.img_source}
+                place_url={data.place_url}
             />
         </Col>
     );
@@ -69,7 +70,9 @@ const MenuPage = () => {
         setDatas([]);
         setIsLoading(false);
         const result = await axios(
-          `https://khumeal.herokuapp.com/api/${campus}`
+            process.env.NODE_ENV === 'production' ?
+            `https://khumeal.herokuapp.com/api/${campus}` :
+            `http://localhost:5000/api/${campus}`
         );
         setDatas(result.data);
         setIsLoading(true);
@@ -83,7 +86,8 @@ const MenuPage = () => {
     const changeData = async (navCampus) => {
         setOffBtnStyle();
         campus = await navCampus;
-        fetchData();
+        await fetchData();
+        initClickAll();
     }
 
     const initSettings = async () => {
