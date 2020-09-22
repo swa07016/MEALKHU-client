@@ -63,6 +63,9 @@ const NavBar = (props) => {
               <NavItem>
                 <NavLink href="/random" style={{'color':'#940f0f'}}><strong>랜덤 / 밀쿠맵</strong></NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="/feedback/seoul" style={{'color':'#940f0f'}}><strong>피드백</strong></NavLink>
+              </NavItem>
             </Nav>
             <NavbarText>
               <Row>
