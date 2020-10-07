@@ -20,7 +20,6 @@ const LandingPage = () => {
                         <div className="text-center" style={{
                             'margin': '1rem'
                             }}>
-                            
                             <img src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/menu_icon.png" alt="menu-icon" width="50" />
                             <h4 className="my-3">메뉴별</h4>
                             <p className="text-muted">메뉴별 필터링 기능을 사용해서<br/>원하는 메뉴로 음식점들을 찾아보세요!</p>
