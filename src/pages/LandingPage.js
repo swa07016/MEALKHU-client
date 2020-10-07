@@ -30,7 +30,6 @@ const LandingPage = () => {
                         <div className="text-center" style={{
                             'margin': '1rem'
                             }}>
-                            
                             <img src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/price_icon.png" alt="price-icon" width="50" />
                             <h4 className="my-3">가격별</h4>
                             <p className="text-muted">가격별 필터링 기능을 사용해서<br/>원하는 가격으로 음식점들을 찾아보세요!</p>
