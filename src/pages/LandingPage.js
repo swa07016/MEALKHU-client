@@ -15,7 +15,7 @@ const LandingPage = () => {
             <Container className="mb-4">
                 <h3>Our Services</h3>
                 <hr className="mb-3"/>
-                <Row xs="1" sm="1" md="3" lg="3">
+                <Row className="mb-5" xs="1" sm="1" md="3" lg="3">
                     <Col>
                         <div className="text-center" style={{
                             'margin': '1rem'
@@ -48,6 +48,41 @@ const LandingPage = () => {
                         </div>
                     </Col>
                 </Row>
+			    
+				<h3 className="mt-5">Contact</h3>
+				<hr className="mb-3"/>
+				<Row xs="1" sm="1" md="2" lg="2">
+					<Col className="order-lg-1 px-5 m-auto">
+                        <div className="px-4 py-5">
+                        <img className="img-fluid rounded-circle shadow-lg" src="https://cdn.pixabay.com/photo/2017/11/10/04/47/letter-2935365_960_720.png"/>
+                        </div>
+                    </Col>
+					<Col className="order-lg-2 align-items-center justify-content-center m-auto">
+						<div className="py-5 m-auto">	
+							<Row className="align-items-center justify-content-center" xs="1" sm="1" md="1" lg="1">
+								
+								<Col className="text-center pb-4">
+									 <h4 className="mb-3">서울캠퍼스</h4>
+									<h6 className="lead">최부성 (관광학과)</h6>
+									<h6>isakchoe@naver.com</h6>
+								</Col>
+								<Col className="text-center py-4">
+									 <h4 className="mb-3">국제캠퍼스</h4>
+									<h6 className="lead">정성훈 (컴퓨터공학과)</h6>
+									<h6>swa07016@khu.ac.kr</h6>
+								</Col>
+								<Row className="justify-content-center mt-2">
+									<div className="col-lg-8 text-center">	
+										<p className="text-muted">식당추가/정보수정 등의 연락은 언제나 환영입니다.</p>
+									</div>
+								</Row>
+								
+							</Row>
+						</div>
+					</Col>
+				</Row>
+			
+				
             </Container>
             <footer className="py-3" style={{
                 backgroundColor:'#940f0f'

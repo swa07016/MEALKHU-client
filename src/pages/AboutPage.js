@@ -65,32 +65,6 @@ const AboutPage = () => {
                         <p className="lead">선택한 카테고리내에서 2개의 식당을 추천해주는 기능입니다. 친구들과 랜덤 추천 기능을 사용해서 빠르게 식사 장소를 결정해보세요!</p>
                     </Col>
                 </Row>
-
-                <hr/>
-
-                <Row className="justify-content-center mt-5">
-                    <div className="col-lg-8 text-center">
-                        <h1 >Contact</h1>
-                        <hr className="my-4 rounded-pill" style={{
-                            height:'3px',
-                            backgroundColor:'black',
-                            width:'50px'
-                        }}/>
-                        <p className="text-muted">식당추가, 정보수정 등의 연락은 언제나 환영입니다.</p>
-                    </div>
-                </Row>
-                <Row className="mt-1" xs="1" sm="1" md="2" lg="2">
-                    <div className="col-lg-4 ml-auto text-center my-4">
-                         <h4 className="mb-3">서울캠퍼스</h4>
-                        <h6 className="lead">최부성 (관광학과)</h6>
-                        <h6>isakchoe@naver.com</h6>
-                    </div>
-                    <div className="col-lg-4 mr-auto text-center my-4">
-                         <h4 className="mb-3">국제캠퍼스</h4>
-                        <h6 className="lead">정성훈 (컴퓨터공학과)</h6>
-                        <h6>swa07016@khu.ac.kr</h6>
-                    </div>
-                </Row>
             </Container>
             <footer className="py-3" style={{
                 backgroundColor:'#940f0f'
