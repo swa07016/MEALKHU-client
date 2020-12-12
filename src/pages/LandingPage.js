@@ -54,7 +54,7 @@ const LandingPage = () => {
 				<Row xs="1" sm="1" md="2" lg="2">
 					<Col className="order-lg-1 px-5 m-auto">
                         <div className="px-4 py-5">
-                        <img className="img-fluid" src="https://cdn.pixabay.com/photo/2017/02/08/08/38/mail-2048128_960_720.png"/>
+                        <img className="img-fluid" src="https://cdn.jsdelivr.net/gh/swa07016/mealkhu-cdn/contact.png" alt="contact-image"/>
                         </div>
                     </Col>
 					<Col className="order-lg-2 align-items-center justify-content-center m-auto">
