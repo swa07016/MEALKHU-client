@@ -1,0 +1,10 @@
+build
+.git
+node_modules
+public
+.env.production
+.gitignore
+README.md
+debug.log
+package-lock.json
+package.json
